@@ -37,6 +37,10 @@ public class TestCases {
     @Test(priority = 1)
     public void testDequeWebpage() {
 
+        //Ensure the main-nav (CSS selector) has been loaded
+        WebElement mainCSS = driver.findElement(By.cssSelector("nav[id=main-nav]"));
+        Assert.assertTrue(mainCSS.isDisplayed());
+
         //Ensure the number of radio buttons under “Let the Adventure Begin” is 5
         List<WebElement> radioButtons = driver.findElements(By.xpath("//fieldset//div//input[@type='radio']"));
         int total = radioButtons.size();
